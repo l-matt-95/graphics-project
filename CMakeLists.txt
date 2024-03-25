@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.27)
-project(graphics_project)
+project(graphics-project)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(graphics_project
+add_executable(graphics-project
         main.cpp
         glad.c
         AssimpImport.cpp
@@ -19,7 +19,7 @@ find_package(ASSIMP REQUIRED)
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
-target_link_libraries(graphics_project
+target_link_libraries(graphics-project
         sfml-system sfml-window
         ${ASSIMP_LIBRARIES}
 )
