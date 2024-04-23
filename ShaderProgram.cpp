@@ -1,7 +1,8 @@
 #include "ShaderProgram.h"
-#include <glad/glad.h>
+#include "glad/glad.h"
 #include <fstream>
 #include <sstream>
+#include <iostream>
 
 ShaderProgram::ShaderProgram()
     : m_programId(-1) {

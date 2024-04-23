@@ -11,6 +11,9 @@ add_executable(graphics-project
         Object3D.cpp
         ShaderProgram.cpp
         StbImage.cpp
+        Texture.h
+        AssimpImport.h
+        Animator.cpp
 )
 
 find_package(SFML COMPONENTS system window REQUIRED)
