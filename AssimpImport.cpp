@@ -19,16 +19,22 @@ std::vector<Texture> loadMaterialTextures(aiMaterial* mat, aiTextureType type, c
 		mat->GetTexture(type, i, &name);
 		std::filesystem::path texPath = modelPath.parent_path() / name.C_Str();
 
-		auto existing = loadedTextures.find(std::filesystem::canonical(texPath));
+		auto existing = loadedTextures.find(texPath);
 		if (existing != loadedTextures.end()) {
+            std::cout << "Found but failed";
 			textures.push_back(existing->second);
 		}
 		else {
 			StbImage image;
+            std::cout << "Loading image!";
 			image.loadFromFile(texPath);
+            std::cout << "Loaded";
 			Texture tex = Texture::loadImage(image, typeName);
+            std::cout << "Loaded 2";
 			textures.push_back(tex);
-			loadedTextures.insert(std::make_pair(std::filesystem::canonical(texPath), tex));
+            std::cout << "Loaded 3";
+			loadedTextures.insert(std::make_pair(texPath, tex));
+            std::cout << "Loaded 4";
 		}
 	}
 	return textures;
